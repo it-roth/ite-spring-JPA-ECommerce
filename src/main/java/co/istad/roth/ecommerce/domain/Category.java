@@ -22,12 +22,17 @@ public class Category {
 
     private String description;
     private String icon;
+    private Boolean isDeleted;
 
 
     @ManyToOne
     private Category parentCategory;
 
+    @OneToMany(mappedBy = "parentCategory",cascade = CascadeType.REMOVE)
+    private List<Category> childCategories;
+
     @OneToMany(mappedBy = "category")
     private List<Product> products;
+
 
 }
