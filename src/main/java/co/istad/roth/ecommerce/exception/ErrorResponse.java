@@ -10,4 +10,3 @@ public record ErrorResponse<T>(
         T errors
 ) {
 }
-

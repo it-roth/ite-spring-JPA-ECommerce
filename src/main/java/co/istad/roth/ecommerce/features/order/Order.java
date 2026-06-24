@@ -1,4 +1,4 @@
-package co.istad.roth.ecommerce.domain;
+package co.istad.roth.ecommerce.features.order;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,20 +7,19 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table( name = "orders")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(nullable = false)
-    private  String customerId;
+    private String customerId;
     @Column(nullable = false)
     private String address;
     @Column(nullable = false)
@@ -35,4 +34,5 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines;
+
 }

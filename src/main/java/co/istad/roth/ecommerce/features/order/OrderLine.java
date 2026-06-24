@@ -1,5 +1,6 @@
-package co.istad.roth.ecommerce.domain;
+package co.istad.roth.ecommerce.features.order;
 
+import co.istad.roth.ecommerce.features.product.Product;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "order_lines")
 public class OrderLine {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,6 +25,8 @@ public class OrderLine {
     @ManyToOne
     private Product product;
 
+    @Column(nullable = false)
     private Integer qty;
+    @Column(nullable = false)
     private BigDecimal unitPrice;
 }

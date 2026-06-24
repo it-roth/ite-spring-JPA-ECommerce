@@ -1,4 +1,4 @@
-package co.istad.roth.ecommerce.dto;
+package co.istad.roth.ecommerce.features.category.dto;
 
 import lombok.Builder;
 
@@ -10,5 +10,5 @@ public record CategoryResponse(
         String icon,
         Boolean isDeleted,
         CategoryResponse parentCategory
-)  {
+) {
 }

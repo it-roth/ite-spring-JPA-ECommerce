@@ -1,7 +1,9 @@
-package co.istad.roth.ecommerce.domain;
+package co.istad.roth.ecommerce.features.product;
 
+
+import co.istad.roth.ecommerce.features.category.Category;
+import co.istad.roth.ecommerce.features.order.OrderLine;
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,37 +15,30 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table( name = "products")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(length = 100, nullable = false, unique = true)
     private String code;
-
-    @Column(nullable = false, unique = true) //for SEO
-    private String slug;
-
+    @Column(nullable = false, unique = true)
+    private String slug; // for SEO
     @Column(nullable = false)
     private String name;
-
     @Column(length = 500)
     private String description;
-
     @Column(nullable = false)
     private String thumbnail;
-
     @Column(nullable = false)
-    private BigDecimal price;
-
+    private BigDecimal unitPrice;
     @Column(nullable = false)
     private Integer qty;
 
     @Column(nullable = false)
     private Boolean isAvailable;
     @Column(nullable = false)
-    private Boolean isDeleted; //soft delete
+    private Boolean isDeleted; // soft delete
 
     @ManyToOne
     private Category category;

@@ -1,13 +1,11 @@
-package co.istad.roth.ecommerce.dto;
+package co.istad.roth.ecommerce.features.category.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-import lombok.Builder;
 
-@Builder
 public record CreateCategoryRequest(
-        @NotBlank(message = "name is required")
+        @NotBlank(message = "Name is required")
         @Size(max = 50)
         String name,
         String description,
