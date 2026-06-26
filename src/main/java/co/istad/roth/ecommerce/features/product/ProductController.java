@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     private final co.istad.roth.ecommerce.features.product.ProductService productService;
-
     
     @GetMapping
     public Page<ProductResponse> findAll(
@@ -23,7 +22,6 @@ public class ProductController {
     ) {
         return productService.findAll(pageNumber, pageSize);
     }
-
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping

@@ -19,6 +19,9 @@ public class FileUpload {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @Column(nullable = false, length = 15)
+    private String extension;
+
     private String caption;
 
     @Column(nullable = false)

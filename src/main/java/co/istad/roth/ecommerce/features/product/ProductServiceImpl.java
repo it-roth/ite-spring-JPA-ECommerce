@@ -33,7 +33,6 @@ public class ProductServiceImpl implements ProductService {
         return products.map(productMapper::mapProductToProductResponse);
     }
 
-
     @Override
     public ProductResponse createNew(CreateProductRequest createProductRequest) {
 
